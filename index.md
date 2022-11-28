@@ -12,7 +12,7 @@ echo $? > line9.exit
 FILE=ListExamples.java > f.txt 2> f-err.txt
 echo $? > line11.exit
 
-if [[ -f "$FILE" ]]
+if [[ -f "$FILE" ]] # line 15 #
 then
         echo "ListExamples.java exists!"
 else
@@ -30,7 +30,7 @@ SCORE=0
 javac -cp ".;../lib/*" ListExamples.java TestListExamples.java >jvc.txt 2>jvc-err.txt
 echo $? >line28.exit
 
-if [[ $? -eq 0 ]]
+if [[ $? -eq 0 ]] # line 33 #
 then
   SCORE=$(($SCORE+1))
 else
@@ -40,7 +40,7 @@ fi
 
 FAILED=$(java -cp ".;../lib/*" org.junit.runner.JUnitCore TestListExamples | grep -oP "(?<=,  Failures: )[0-9]+")
 
-if [[ $? -eq 1 ]] 
+if [[ $? -eq 1 ]] # line 43 #
 
 then
   SCORE=$(($SCORE+2))
@@ -69,9 +69,9 @@ if [[ -f "$FILE" ]]
 ```
 is true because it checks if the file is in the directory of pa1, the URL has the correct file. 
 
-The if statement on line 32 is true because when i put "echo $?" on line 33 it prints out 0.
+The if statement on line 33 is true because when i put "echo $?" on line 34 it prints out 0.
 
-The if statement on line 42 is true because when i put "echo $?" on line 41, it prints out 1.
+The if statement on line 42 is true because when i put "echo $?" on line 44, it prints out 1.
 
 The code works when i run 
 ```
